@@ -675,6 +675,9 @@ open class ActionController<ActionViewType: UICollectionViewCell, ActionDataType
         leftInset += safeAreaInsets.left
         rightInset += safeAreaInsets.right
         topInset += safeAreaInsets.top
+        
+        // topInset calculate above is useless and fault
+        topInset = height - (contentHeight + safeAreaInsets.bottom)
 
         collectionView.contentInset = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         if !settings.behavior.useDynamics {
